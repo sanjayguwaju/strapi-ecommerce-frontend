@@ -15,6 +15,7 @@ const Products = () => {
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
   );
 
+
   const handleChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;

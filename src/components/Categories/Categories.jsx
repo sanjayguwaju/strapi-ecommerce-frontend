@@ -1,89 +1,72 @@
 import React from "react";
 import "./Categories.scss";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Categories = () => {
+
+  const { data, loading, error } = useFetch(`/categories?populate=*`);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const thirdLength = Math.ceil(data?.length / 3);
+  console.log(thirdLength)
+  const firstThirdData = data?.slice(0, thirdLength);
+  const secondThirdData = data?.slice(thirdLength, 2 * thirdLength);
+  const lastThirdData = data?.slice(2 * thirdLength);
+
   return (
     <div className="categories">
       <div className="col">
-        <div className="row">
-          <img
-            src="https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <button>
-            <Link className="link" to="/products/1">
-              Sale
-            </Link>
-          </button>
-        </div>
-        <div className="row">
-          <img
-            src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <button>
-            <Link to="/products/1" className="link">
-              Women
-            </Link>
-          </button>
-        </div>
+        {firstThirdData?.map((item) => (
+          <div className="row" key={item?.id}>
+            <img
+              src={process.env.REACT_APP_UPLOAD_URL + item?.attributes?.img?.data?.attributes?.url }
+              alt=""
+            />
+            <button>
+              <Link className="link" to={`/products/${item?.id}`}>
+                {item?.attributes?.title}
+              </Link>
+            </button>
+          </div>
+        ))}
       </div>
       <div className="col">
-        <div className="row">
-          {" "}
-          <img
-            src="https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <button>
-            <Link to="/products/1" className="link">
-              New Season
-            </Link>
-          </button>
-        </div>
+        {secondThirdData?.map((item) => (
+          <div className="row" key={item?.id}>
+            <img
+              src={process.env.REACT_APP_UPLOAD_URL + item?.attributes?.img?.data?.attributes?.url }
+              alt=""
+            />
+            <button>
+              <Link className="link" to={`/products/${item?.id}`}>
+                {item?.attributes?.title}
+              </Link>
+            </button>
+          </div>
+        ))}
       </div>
-      <div className="col col-l">
-        <div className="row">
-          <div className="col">
-            <div className="row">
-              <img
-                src="https://images.pexels.com/photos/1192609/pexels-photo-1192609.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
-              <button>
-                <Link to="/products/1" className="link">
-                  Men
-                </Link>
-              </button>
-            </div>
+      <div className="col col-1">
+        {lastThirdData?.map((item) => (
+          <div className="row" key={item?.id}>
+            <img
+              src={process.env.REACT_APP_UPLOAD_URL + item?.attributes?.img?.data?.attributes?.url }
+              alt=""
+            />
+            <button>
+              <Link className="link" to={`/products/${item?.id}`}>
+                {item?.attributes?.title}
+              </Link>
+            </button>
           </div>
-          <div className="col">
-            <div className="row">
-              {" "}
-              <img
-                src="https://images.pexels.com/photos/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
-              <button>
-                <Link to="/products/1" className="link">
-                  Accessories
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <img
-            src="https://images.pexels.com/photos/1159670/pexels-photo-1159670.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <button>
-            <Link to="/products/1" className="link">
-              Shoes
-            </Link>
-          </button>
-        </div>
+        ))}
       </div>
     </div>
   );

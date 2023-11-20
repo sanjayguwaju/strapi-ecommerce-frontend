@@ -7,9 +7,9 @@ const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const data = [
-    "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "https://res.cloudinary.com/dz3facqgc/image/upload/v1700370723/jyqi2y1kjd3x2l32iloe.jpg",
+    "https://res.cloudinary.com/dz3facqgc/image/upload/v1700370796/pusf1gfe2yclvpchudwy.jpg",
+    "https://res.cloudinary.com/dz3facqgc/image/upload/v1700370841/o9c2xkyoz2hsk9iyawml.jpg",
   ];
 
   const prevSlide = () => {
