@@ -1,5 +1,28 @@
 .navbar {
   height: 80px;
+  
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    z-index: 9999;
+
+    .item {
+      margin-bottom: 20px;
+    }
+
+    // For small devices
+    @media (max-width: 576px) {
+      display: block;
+    }
+  }
 
   .wrapper {
     padding: 10px 30px;
@@ -17,21 +40,39 @@
       display: flex;
       align-items: center;
       gap: 25px;
+
+      // For small devices
+      @media (max-width: 576px) {
+        display: none;
+      }
     }
     .center {
       font-size: 30px;
       letter-spacing: 2px;
+      // For small devices
+      @media (max-width: 576px) {
+       font-size: 25px;
+      }
     }
     .right {
       display: flex;
       align-items: center;
       gap: 25px;
+      
+      @media (max-width: 576px) {
+        display: none;
+      }
 
       .icons {
         display: flex;
         gap: 15px;
         color: #777;
         cursor: pointer;
+      
+        // For small devices
+        @media (max-width: 576px) {
+          display: none;
+        }
 
         .cartIcon {
           position: relative;
@@ -52,6 +93,30 @@
           }
         }
       }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    // For medium devices
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    // For small devices
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    // For large devices
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: center;
     }
   }
 }

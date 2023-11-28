@@ -3,6 +3,27 @@
   display: flex;
   gap: 50px;
 
+  // For medium devices
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+  }
+
+  // For small devices
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+  }
+
+  // For large devices
+  @media (min-width: 992px) {
+    flex-direction: row;
+    gap: 50px;
+    padding: 20px 50px;
+  }
+
   .left {
     flex: 1;
     display: flex;

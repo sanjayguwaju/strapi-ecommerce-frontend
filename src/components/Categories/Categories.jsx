@@ -15,11 +15,11 @@ const Categories = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const thirdLength = Math.ceil(data?.length / 3);
-  console.log(thirdLength)
-  const firstThirdData = data?.slice(0, thirdLength);
-  const secondThirdData = data?.slice(thirdLength, 2 * thirdLength);
-  const lastThirdData = data?.slice(2 * thirdLength);
+  // const thirdLength = Math.ceil(data?.length / 3);
+  // console.log(thirdLength)
+  const firstThirdData = data?.slice(0, 2);
+  const secondThirdData = data?.slice(2, 3);
+  const lastThirdData = data?.slice(3, 5);
 
   return (
     <div className="categories">

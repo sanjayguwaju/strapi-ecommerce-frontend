@@ -11,6 +11,22 @@
     align-items: center;
     justify-content: space-between;
 
+    // For medium devices
+    @media (max-width: 768px) {
+      flex-direction: column;
+      width: 80%;
+    }
+
+    // For small devices
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+
+    // For large devices
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+
     input{
       padding: 10px;
       border: none;
